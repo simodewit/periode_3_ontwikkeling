@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: eda62b1e64c853a4eb8b513903659762
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Purple Smile
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2115f465a606b9244b9d0370e1d69d03, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
