@@ -20,7 +20,7 @@ public class KeyMovementScript : MonoBehaviour
     public float camspeed;
 
     public Rigidbody rb;
-    public float jumpForce = 10;
+    public float jumpForce;
     public bool canJump;
     public bool isGrounded;
 
@@ -29,6 +29,7 @@ public class KeyMovementScript : MonoBehaviour
     void Start()
     {
         moveSpeed = 4;
+        jumpForce = 3;
         rotSpeed = 4;
         camspeed = 4;
         rb = GetComponent<Rigidbody>();
@@ -61,9 +62,8 @@ public class KeyMovementScript : MonoBehaviour
                 isGrounded = false;
             }
         }
-
-
     }
+
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Floor")
@@ -71,5 +71,4 @@ public class KeyMovementScript : MonoBehaviour
             isGrounded = true;
         }
     }
-
 }
