@@ -66,6 +66,8 @@ public class ButtonManager : MonoBehaviour
         buttonSlot2.SetActive(false);
         buttonSlot3.SetActive(false);
         buttonBack.SetActive(false);
+        buttonCredits.SetActive(false);
+
     }
     private void OpenAll()
     {
@@ -84,6 +86,7 @@ public class ButtonManager : MonoBehaviour
     {
         CloseAll();
         buttonCredits.SetActive(true);
+        buttonBack.SetActive(true);
 
     }
     
