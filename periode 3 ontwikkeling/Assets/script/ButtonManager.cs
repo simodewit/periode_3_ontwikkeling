@@ -10,6 +10,10 @@ public class ButtonManager : MonoBehaviour
     public GameObject buttonCredit;
     public GameObject buttonYes;
     public GameObject buttonNo;
+    public GameObject buttonSlot1;
+    public GameObject buttonSlot2;
+    public GameObject buttonSlot3;
+
     public void Exit()
     {
         buttonExit.SetActive(false);
@@ -20,6 +24,16 @@ public class ButtonManager : MonoBehaviour
         buttonNo.SetActive(true);
 
         
+    }
+    public void Saveload()
+    {
+        buttonExit.SetActive(false);
+        buttonStart.SetActive(false);
+        buttonSaveLoad.SetActive(false);
+        buttonCredit.SetActive(false);
+        buttonSlot1.SetActive(true);
+        
+
     }
    
 }
