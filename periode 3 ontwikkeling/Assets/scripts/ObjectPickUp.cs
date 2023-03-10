@@ -6,21 +6,20 @@ using UnityEngine;
 public class ObjectPickUp : MonoBehaviour
 {
     public float pickupBoost;
-    public KeyMovementScript movement;
+    public PlayerMec movement;
     public float timeRemaining;
 
-    // Start is called before the first frame update
     void Start()
     {
         pickupBoost = 7;
     }
 
-    // Update is called once per frame
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        movement.jumpForce += pickupBoost;
-        Destroy (gameObject);
-
-
+        if (other.transform.tag == "Player")
+        {
+            movement.jumpForce += pickupBoost;
+            Destroy(gameObject);
+        }
     }
 }

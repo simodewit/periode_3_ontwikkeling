@@ -21,9 +21,8 @@ public class ButtonManager : MonoBehaviour
         CloseAll();
         buttonYes.SetActive(true);
         buttonNo.SetActive(true);
-
-        
     }
+
     public void Saveload()
     {
         CloseAll();
@@ -31,8 +30,8 @@ public class ButtonManager : MonoBehaviour
         buttonSlot2.SetActive(true);
         buttonSlot3.SetActive(true);
         buttonBack.SetActive(true);
-
     }
+
     public void Back() { 
         CloseAll();
         buttonExit.SetActive(true );
@@ -40,6 +39,7 @@ public class ButtonManager : MonoBehaviour
         buttonSaveLoad.SetActive(true);
         buttonCredit.SetActive(true);
     }
+
     public void StartButton()
     {
         CloseAll();
@@ -48,10 +48,10 @@ public class ButtonManager : MonoBehaviour
         buttonSlot3.SetActive(true);
         buttonBack.SetActive(true);
     }
+
     public void NoButton()
     {
         OpenAll();
-
     }
 
     private void CloseAll()
@@ -67,8 +67,8 @@ public class ButtonManager : MonoBehaviour
         buttonSlot3.SetActive(false);
         buttonBack.SetActive(false);
         buttonCredits.SetActive(false);
-
     }
+
     private void OpenAll()
     {
         buttonExit.SetActive(true);
@@ -82,13 +82,11 @@ public class ButtonManager : MonoBehaviour
         buttonSlot3.SetActive(false);
         buttonBack.SetActive(false);
     }
+
     public void CreditButton()
     {
         CloseAll();
         buttonCredits.SetActive(true);
         buttonBack.SetActive(true);
-
     }
-    
-
 }

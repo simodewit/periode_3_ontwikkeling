@@ -24,8 +24,6 @@ public class KeyMovementScript : MonoBehaviour
     public bool canJump;
     public bool isGrounded;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         moveSpeed = 4;
@@ -33,10 +31,8 @@ public class KeyMovementScript : MonoBehaviour
         rotSpeed = 4;
         camspeed = 4;
         rb = GetComponent<Rigidbody>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxis("Horizontal");
