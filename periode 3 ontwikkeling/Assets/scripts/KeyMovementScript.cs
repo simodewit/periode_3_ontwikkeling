@@ -24,6 +24,9 @@ public class KeyMovementScript : MonoBehaviour
     public bool canJump;
     public bool isGrounded;
 
+    public ObjectPickUp deBoost;
+
+
     void Start()
     {
         moveSpeed = 4;
@@ -31,6 +34,7 @@ public class KeyMovementScript : MonoBehaviour
         rotSpeed = 4;
         camspeed = 4;
         rb = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
@@ -52,12 +56,23 @@ public class KeyMovementScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGrounded == true)
+            isGrounded = false;
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                rb.velocity += Vector3.up * jumpForce;
-                isGrounded = false;
+                rb.velocity += Vector3.up * jumpForce * 7;
+            }
+            else
+            {
+                {
+                    rb.velocity += Vector3.up * jumpForce;
+                }
+
             }
         }
+
+
+
+
     }
 
     public void OnCollisionEnter(Collision collision)

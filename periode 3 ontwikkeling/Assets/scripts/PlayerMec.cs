@@ -27,6 +27,7 @@ public class PlayerMec : MonoBehaviour
     public int health;
     public TextMeshProUGUI healthSpace;
 
+    public ObjectPickUp boostJump;
     void Start()
     {
         moveSpeed = 4;
@@ -34,6 +35,7 @@ public class PlayerMec : MonoBehaviour
         rotSpeed = 4;
         camspeed = 4;
         rb = GetComponent<Rigidbody>();
+        
     }
 
     void Update()
@@ -53,15 +55,19 @@ public class PlayerMec : MonoBehaviour
         camRot.x = came;
         cam.transform.Rotate(camRot * camspeed);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
-            if (isGrounded == true)
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                rb.velocity += Vector3.up * jumpForce;
                 isGrounded = false;
+                rb.velocity += Vector3.up * jumpForce * ;
+            }
+            else
+            {
+                isGrounded = false;
+                rb.velocity += Vector3.up * jumpForce;
             }
         }
-
     }
 
     public void DoDamage(int damageToDo)
