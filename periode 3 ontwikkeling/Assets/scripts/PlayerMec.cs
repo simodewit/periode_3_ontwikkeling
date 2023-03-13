@@ -21,8 +21,8 @@ public class PlayerMec : MonoBehaviour
 
     public Rigidbody rb;
     public float jumpForce;
-    public bool canJump;
     public bool isGrounded;
+    public float jumpBoost;
 
     public int health;
     public TextMeshProUGUI healthSpace;
@@ -55,18 +55,15 @@ public class PlayerMec : MonoBehaviour
         camRot.x = came;
         cam.transform.Rotate(camRot * camspeed);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Space) && isGrounded == true && boostJump == null)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                isGrounded = false;
-                rb.velocity += Vector3.up * jumpForce * ;
-            }
-            else
-            {
-                isGrounded = false;
-                rb.velocity += Vector3.up * jumpForce;
-            }
+            rb.velocity += Vector3.up * jumpBoost;
+            isGrounded = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        {
+            rb.velocity += Vector3.up * jumpForce;
+            isGrounded = false;
         }
     }
 
@@ -75,7 +72,7 @@ public class PlayerMec : MonoBehaviour
         health -= damageToDo;
         healthSpace.text = health.ToString();
 
-        if(health<= 0)
+        if(health <= 0)
         {
             Destroy(gameObject);
         }

@@ -18,7 +18,7 @@ public class ObjectPickUp : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            movement.jumpForce += pickupBoost;
+            movement.jumpBoost = pickupBoost;
             Destroy(gameObject);
         }
     }
