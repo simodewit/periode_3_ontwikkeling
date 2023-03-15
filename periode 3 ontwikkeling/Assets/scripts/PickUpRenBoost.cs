@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class ObjectPickUp : MonoBehaviour
+public class PickUpRenBoost : MonoBehaviour
 {
-    public float pickupBoost;
-    public PlayerMec movement;
+    public float renBoost;
+    public PlayerMec renScript;
 
+
+    // Start is called before the first frame update
     void Start()
     {
-        pickupBoost = 7;
+        renBoost = 9;
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
         {
-            movement.jumpBoost = pickupBoost;
+            renScript.moveSpeed = renBoost;
             Destroy(gameObject);
         }
     }

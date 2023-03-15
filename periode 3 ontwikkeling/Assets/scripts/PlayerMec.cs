@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,10 +25,16 @@ public class PlayerMec : MonoBehaviour
     public bool isGrounded;
     public float jumpBoost;
 
+    public float speedBoost;
+
     public int health;
     public TextMeshProUGUI healthSpace;
 
+    public float deathBarrier;
+
     public ObjectPickUp boostJump;
+
+    public PickUpRenBoost snellerRennen;
     void Start()
     {
         moveSpeed = 4;
@@ -65,6 +72,19 @@ public class PlayerMec : MonoBehaviour
             rb.velocity += Vector3.up * jumpForce;
             isGrounded = false;
         }
+
+
+        if (transform.position.y < deathBarrier)
+        {
+            Destroy(gameObject);
+        }
+
+
+        if (Input.GetKey(KeyCode.Tab) && Input.GetKeyDown(KeyCode.W)) 
+        {
+            
+        }
+
     }
 
     public void DoDamage(int damageToDo)
