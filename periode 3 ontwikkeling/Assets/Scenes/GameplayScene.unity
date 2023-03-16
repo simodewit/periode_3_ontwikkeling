@@ -697,7 +697,7 @@ MonoBehaviour:
   healthSpace: {fileID: 428729334}
   deathBarrier: -10
   boostJump: {fileID: 1380772046}
-  snellerRennen: {fileID: 0}
+  pickupEnRen: {fileID: 0}
 --- !u!1 &793691103
 GameObject:
   m_ObjectHideFlags: 0

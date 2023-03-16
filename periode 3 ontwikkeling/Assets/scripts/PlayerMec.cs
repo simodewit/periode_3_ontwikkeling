@@ -34,7 +34,7 @@ public class PlayerMec : MonoBehaviour
 
     public ObjectPickUp boostJump;
 
-    public PickUpRenBoost snellerRennen;
+    public PickUpRenBoost pickupEnRen;
     void Start()
     {
         moveSpeed = 4;
@@ -80,9 +80,9 @@ public class PlayerMec : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Tab) && Input.GetKeyDown(KeyCode.W)) 
+        if (Input.GetKey(KeyCode.Tab))
         {
-            
+
         }
 
     }

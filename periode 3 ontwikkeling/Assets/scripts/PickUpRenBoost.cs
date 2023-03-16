@@ -7,7 +7,6 @@ public class PickUpRenBoost : MonoBehaviour
     public float renBoost;
     public PlayerMec renScript;
 
-
     // Start is called before the first frame update
     void Start()
     {
