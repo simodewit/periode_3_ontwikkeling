@@ -80,9 +80,9 @@ public class PlayerMec : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Tab) && Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.Tab) && Input.GetAxis("Horizontal") != 0)
         {
-
+            
         }
 
     }
