@@ -85,7 +85,7 @@ public class ButtonManager : MonoBehaviour
         buttonSlot2.SetActive(false);
         buttonSlot3.SetActive(false);
         buttonBack.SetActive(false);
-        logo.SetActive(false);
+        logo.SetActive(true);
     }
 
     public void CreditButton()
