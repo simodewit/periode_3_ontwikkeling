@@ -16,6 +16,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject buttonSlot3;
     public GameObject buttonBack;
     public GameObject buttonCredits;
+    public GameObject logo;
 
     public void Exit()
     {
@@ -39,6 +40,7 @@ public class ButtonManager : MonoBehaviour
         buttonStart.SetActive(true);
         buttonSaveLoad.SetActive(true);
         buttonCredit.SetActive(true);
+        logo.SetActive(true);
     }
 
     public void StartButton()
@@ -68,6 +70,7 @@ public class ButtonManager : MonoBehaviour
         buttonSlot3.SetActive(false);
         buttonBack.SetActive(false);
         buttonCredits.SetActive(false);
+        logo.SetActive(false);
     }
 
     private void OpenAll()
@@ -82,6 +85,7 @@ public class ButtonManager : MonoBehaviour
         buttonSlot2.SetActive(false);
         buttonSlot3.SetActive(false);
         buttonBack.SetActive(false);
+        logo.SetActive(false);
     }
 
     public void CreditButton()
