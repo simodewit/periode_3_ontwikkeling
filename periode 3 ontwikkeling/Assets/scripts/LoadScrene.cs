@@ -18,7 +18,7 @@ public class LoadScrene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -47,6 +47,7 @@ public class LoadScrene : MonoBehaviour
     {
         endLoad = false;
         loadTrigger = true;
+        Cursor.lockState = CursorLockMode.Locked;
         yield return new WaitForSeconds(loadScreenTime);
         loadTrigger = false;
         SceneManager.LoadScene("GameplayScene");

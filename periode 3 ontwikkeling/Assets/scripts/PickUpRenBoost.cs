@@ -5,19 +5,18 @@ using UnityEngine;
 public class PickUpRenBoost : MonoBehaviour
 {
     public float renBoost;
-    public PlayerMec renScript;
+    public PlayerMec movement;
 
-    // Start is called before the first frame update
     void Start()
     {
-        renBoost = 9;
+
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
         {
-            renScript.moveSpeed = renBoost;
+            movement.renBoost = renBoost;
             Destroy(gameObject);
         }
     }

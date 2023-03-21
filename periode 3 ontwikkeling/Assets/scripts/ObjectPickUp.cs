@@ -10,7 +10,7 @@ public class ObjectPickUp : MonoBehaviour
 
     void Start()
     {
-        pickupBoost = 7;
+
     }
 
     public void OnTriggerEnter(Collider other)

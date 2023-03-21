@@ -6,65 +6,57 @@ using UnityEngine;
 
 public class PlayerMec : MonoBehaviour
 {
-    public float hor;
-    public float vert;
+    private Vector3 movement;
     public float moveSpeed;
-    public Vector3 movement;
+    public float runSpeed;
+    public bool checkIfRunning;
 
+    private Vector3 vec3Rot;
     public float rotSpeed;
-    public float rot;
-    public Vector3 vec3Rot;
 
+    private Vector3 camRot;
     public Camera cam;
-    public Vector3 camRot;
-    public float came;
     public float camspeed;
 
+    private bool isGrounded;
     public Rigidbody rb;
     public float jumpForce;
-    public bool isGrounded;
-    public float jumpBoost;
 
-    public float speedBoost;
+    public float jumpBoost;
+    public ObjectPickUp boostJump;
+
+    public float renBoost;
+    public PickUpRenBoost pickupRen;
+    public bool checkIfBoosting;
 
     public int health;
     public TextMeshProUGUI healthSpace;
 
     public float deathBarrier;
 
-    public ObjectPickUp boostJump;
-
-    public PickUpRenBoost pickupEnRen;
     void Start()
     {
-        moveSpeed = 4;
-        jumpForce = 3;
-        rotSpeed = 4;
-        camspeed = 4;
         rb = GetComponent<Rigidbody>();
-        
     }
 
     void Update()
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
-
-
         transform.Translate(movement * moveSpeed * Time.deltaTime);
 
-        rot = Input.GetAxis("Mouse X");
-        vec3Rot.y = rot;
+
+        vec3Rot.y = Input.GetAxis("Mouse X");
         transform.Rotate(vec3Rot * rotSpeed);
 
 
-        came = -Input.GetAxis("Mouse Y");
-        camRot.x = came;
+        camRot.x = -Input.GetAxis("Mouse Y");
         cam.transform.Rotate(camRot * camspeed);
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Space) && isGrounded == true && boostJump == null)
+
+        if (Input.GetKey(KeyCode.E) && Input.GetKeyDown(KeyCode.Space) && isGrounded == true && boostJump == null)
         {
-            rb.velocity += Vector3.up * jumpBoost;
+            rb.velocity += Vector3.up * boostJump.pickupBoost;
             isGrounded = false;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
@@ -80,11 +72,28 @@ public class PlayerMec : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Tab) && Input.GetAxis("Horizontal") != 0)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded == true && pickupRen == null && checkIfBoosting == false)
         {
-            
+            moveSpeed += pickupRen.renBoost;
+            checkIfBoosting = true;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftControl) && pickupRen == null && checkIfBoosting == true)
+        {
+            moveSpeed -= pickupRen.renBoost;
+            checkIfBoosting = false;
         }
 
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && isGrounded == true && checkIfRunning == false)
+        {
+            moveSpeed += runSpeed;
+            checkIfRunning = true;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftShift) && checkIfRunning == true)
+        {
+            moveSpeed -= runSpeed;
+            checkIfRunning = false;
+        }
     }
 
     public void DoDamage(int damageToDo)
