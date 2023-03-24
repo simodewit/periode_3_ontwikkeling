@@ -8,11 +8,12 @@ public class PauzeButtons : MonoBehaviour
     public GameObject buttonContinu;
     public GameObject buttonExit;
     public GameObject pauzeText;
-  
+
     void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
+            Cursor.lockState = CursorLockMode.None;
             pauzeText.SetActive(true);
             buttonContinu.SetActive(true);
             buttonExit.SetActive(true);
@@ -22,6 +23,7 @@ public class PauzeButtons : MonoBehaviour
 
     public void ContinuButton()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         pauzeText.SetActive(false);
         buttonContinu.SetActive(false);
         buttonExit.SetActive(false);
@@ -32,8 +34,6 @@ public class PauzeButtons : MonoBehaviour
         pauzeText.SetActive(false);
         buttonContinu.SetActive(false);
         buttonExit.SetActive(false);
-        SceneManager.LoadScene("MainScene");
-
     }
 
 }

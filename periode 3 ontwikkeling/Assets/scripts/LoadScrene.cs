@@ -14,11 +14,17 @@ public class LoadScrene : MonoBehaviour
     public bool loadTrigger;
     public bool endLoad;
     public float loadScreenTime;
+    public string sceneToLoad;
 
     // Start is called before the first frame update
     void Start()
     {
 
+    }
+
+    public void MainSceneLoad()
+    {
+        sceneToLoad = ("MainScene");
     }
 
     // Update is called once per frame
@@ -50,8 +56,16 @@ public class LoadScrene : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         yield return new WaitForSeconds(loadScreenTime);
         loadTrigger = false;
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene(sceneToLoad);
         yield return new WaitForSeconds(loadScreenTime);
         endLoad = true;
+
+        if(sceneToLoad == "MainScene")
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        yield return new WaitForSeconds(3);
+        Destroy(loadImage);
+        Destroy(this.gameObject);
     }
 }
