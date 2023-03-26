@@ -34,6 +34,8 @@ public class PlayerMec : MonoBehaviour
 
     public float deathBarrier;
 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -94,6 +96,8 @@ public class PlayerMec : MonoBehaviour
             moveSpeed -= runSpeed;
             checkIfRunning = false;
         }
+
+        if(Physics.Raycast())
     }
 
     public void DoDamage(int damageToDo)
@@ -104,14 +108,6 @@ public class PlayerMec : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
-        }
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.tag == "Floor")
-        {
-            isGrounded = true;
         }
     }
 }
