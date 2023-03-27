@@ -34,6 +34,8 @@ public class PlayerMec : MonoBehaviour
 
     public float deathBarrier;
 
+    public RaycastHit hit;
+
 
 
     void Start()
@@ -97,7 +99,10 @@ public class PlayerMec : MonoBehaviour
             checkIfRunning = false;
         }
 
-        if(Physics.Raycast())
+        if (Physics.Raycast(transform.position,-transform.up, out hit,1)) 
+        { 
+         
+        }
     }
 
     public void DoDamage(int damageToDo)
