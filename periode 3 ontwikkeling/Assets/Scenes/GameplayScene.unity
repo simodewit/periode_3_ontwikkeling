@@ -7554,6 +7554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 96ceeeadbbbab2a4e8b6ee5b807b6bdb,
         type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96ceeeadbbbab2a4e8b6ee5b807b6bdb,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13629,7 +13634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aaba7bd8e09ad41b5bfa799a9fb5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonContinu: {fileID: 398889132}
+  buttonContinue: {fileID: 398889132}
   buttonExit: {fileID: 1959140186}
   pauzeText: {fileID: 517114220}
 --- !u!114 &1807856376
