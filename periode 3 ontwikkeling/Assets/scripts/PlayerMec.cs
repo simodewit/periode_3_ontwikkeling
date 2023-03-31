@@ -58,25 +58,9 @@ public class PlayerMec : MonoBehaviour
         cam.transform.Rotate(camRot * camspeed);
 
 
-        if (Input.GetKey(KeyCode.E) && Input.GetKeyDown(KeyCode.Space) && isGrounded == true && boostJump == null)
-        {
-            rb.velocity += Vector3.up * boostJump.pickupBoost;
-            isGrounded = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
-        {
-            rb.velocity += Vector3.up * jumpForce;
-            isGrounded = false;
-        }
 
 
-        if (transform.position.y < deathBarrier)
-        {
-            Destroy(gameObject);
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded == true && pickupRen == null && checkIfBoosting == false)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && pickupRen == null && checkIfBoosting == false)
         {
             moveSpeed += pickupRen.renBoost;
             checkIfBoosting = true;
@@ -88,7 +72,7 @@ public class PlayerMec : MonoBehaviour
         }
 
 
-        if(Input.GetKeyDown(KeyCode.LeftShift) && isGrounded == true && checkIfRunning == false)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && checkIfRunning == false)
         {
             moveSpeed += runSpeed;
             checkIfRunning = true;
@@ -99,9 +83,24 @@ public class PlayerMec : MonoBehaviour
             checkIfRunning = false;
         }
 
-        if (Physics.Raycast(transform.position,-transform.up, out hit,1)) 
-        { 
-         
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 1))
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.velocity += Vector3.up * jumpForce;
+            }
+
+
+            if (Input.GetKey(KeyCode.E) && Input.GetKeyDown(KeyCode.Space) && boostJump == null)
+            {
+                rb.velocity += Vector3.up * boostJump.pickupBoost;
+                isGrounded = false;
+            }
+        }
+
+        if (transform.position.y < deathBarrier)
+        {
+            Destroy(gameObject);
         }
     }
 
