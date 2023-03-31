@@ -46,10 +46,7 @@ public class ButtonManager : MonoBehaviour
     public void StartButton()
     {
         CloseAll();
-        buttonSlot1.SetActive(true);
-        buttonSlot2.SetActive(true);
-        buttonSlot3.SetActive(true);
-        buttonBack.SetActive(true);
+        
     }
 
     public void NoButton()

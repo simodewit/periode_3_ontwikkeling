@@ -8,6 +8,8 @@ public class PauzeButtons : MonoBehaviour
     public GameObject buttonContinue;
     public GameObject buttonExit;
     public GameObject pauzeText;
+    public GameObject saveButton;
+    public GameObject loadButton;
 
     void Update()
     {
@@ -17,7 +19,10 @@ public class PauzeButtons : MonoBehaviour
             pauzeText.SetActive(true);
             buttonContinue.SetActive(true);
             buttonExit.SetActive(true);
+            saveButton.SetActive(true);
+            loadButton.SetActive(true);
 
+            
         }
 
        
@@ -29,6 +34,8 @@ public class PauzeButtons : MonoBehaviour
         pauzeText.SetActive(false);
         buttonContinue.SetActive(false);
         buttonExit.SetActive(false);
+        saveButton.SetActive(false);
+        loadButton.SetActive(false);
     }
    
     public void ExitButton()
@@ -36,6 +43,8 @@ public class PauzeButtons : MonoBehaviour
         pauzeText.SetActive(false);
         buttonContinue.SetActive(false);
         buttonExit.SetActive(false);
+       
+        
     }
 
 }

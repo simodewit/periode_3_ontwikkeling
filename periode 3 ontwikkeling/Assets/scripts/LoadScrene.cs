@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadScrene : MonoBehaviour
 {
+    public SaveAndLoad saveAndLoad;
+
     public Image loadImage;
     public float loadTransition;
     public Color loadColor;
@@ -59,8 +61,16 @@ public class LoadScrene : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
         yield return new WaitForSeconds(loadScreenTime);
         endLoad = true;
+       
+        if (sceneToLoad == "GamePlayScene")
+        {
 
-        if(sceneToLoad == "MainScene")
+            yield return new WaitForSeconds(2);
+            saveAndLoad = GameObject.Find("EventSystem").GetComponent<SaveAndLoad>();
+            saveAndLoad.LoadGame();
+        }
+
+        if (sceneToLoad == "MainScene")
         {
             Cursor.lockState = CursorLockMode.None;
         }
