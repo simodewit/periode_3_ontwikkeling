@@ -18,7 +18,7 @@ public class PlayerMec : MonoBehaviour
     public Camera cam;
     public float camspeed;
 
-    private bool isGrounded;
+    public bool isGrounded;
     public Rigidbody rb;
     public float jumpForce;
 
