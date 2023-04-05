@@ -18,7 +18,6 @@ public class PlayerMec : MonoBehaviour
     public Camera cam;
     public float camspeed;
 
-    public bool isGrounded;
     public Rigidbody rb;
     public float jumpForce;
 
@@ -94,7 +93,6 @@ public class PlayerMec : MonoBehaviour
             if (Input.GetKey(KeyCode.E) && Input.GetKeyDown(KeyCode.Space) && boostJump == null)
             {
                 rb.velocity += Vector3.up * boostJump.pickupBoost;
-                isGrounded = false;
             }
         }
 
