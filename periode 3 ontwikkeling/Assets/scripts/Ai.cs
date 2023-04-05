@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Ai : MonoBehaviour
 {
@@ -19,8 +20,17 @@ public class Ai : MonoBehaviour
     private int roundedAttackTime;
 
     public int health;
+    public Slider healthbar;
 
-    void Update()
+    private Vector3 startPos;
+
+    public void Start()
+    {
+        startPos.x = transform.position.x;
+        startPos.z = transform.position.z;
+    }
+
+    public void Update()
     {
         if (attackTimer > 0)
         {
@@ -37,7 +47,6 @@ public class Ai : MonoBehaviour
 
         if (distanceToPlayer <= attackRadius)
         {
-            transform.LookAt(playerFeet.transform.position);
             agent.destination = transform.position;
 
             if(roundedAttackTime == 0)
@@ -46,6 +55,14 @@ public class Ai : MonoBehaviour
                 player.GetComponent<PlayerMec>().DoDamage(damage);
             }
         }
+
+        if(distanceToPlayer >= findRadius && startPos != transform.position)
+        {
+            agent.destination = startPos;
+        }
+
+        healthbar.value = health;
+        
     }
 
     public void DoDamage(int damageToDo)
