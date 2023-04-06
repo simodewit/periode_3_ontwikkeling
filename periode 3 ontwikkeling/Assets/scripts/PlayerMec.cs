@@ -35,7 +35,7 @@ public class PlayerMec : MonoBehaviour
 
     public RaycastHit hit;
 
-
+    public bool isGrounded;
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class PlayerMec : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && pickupRen == null && checkIfBoosting == false)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && pickupRen == null && checkIfBoosting == false && isGrounded == true)
         {
             moveSpeed += pickupRen.renBoost;
             checkIfBoosting = true;
@@ -84,6 +84,8 @@ public class PlayerMec : MonoBehaviour
 
         if (Physics.Raycast(transform.position, -transform.up, out hit, 1))
         {
+            isGrounded = true;
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 rb.velocity += Vector3.up * jumpForce;
@@ -94,6 +96,10 @@ public class PlayerMec : MonoBehaviour
             {
                 rb.velocity += Vector3.up * boostJump.pickupBoost;
             }
+        }
+        else
+        {
+            isGrounded = false;
         }
 
         if (transform.position.y < deathBarrier)
