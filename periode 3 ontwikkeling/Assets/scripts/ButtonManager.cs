@@ -17,12 +17,14 @@ public class ButtonManager : MonoBehaviour
     public GameObject buttonBack;
     public GameObject buttonCredits;
     public GameObject logo;
+    public GameObject exitText;
 
     public void Exit()
     {
         CloseAll();
         buttonYes.SetActive(true);
         buttonNo.SetActive(true);
+        exitText.SetActive(true);
     }
 
     public void Saveload()
@@ -52,6 +54,7 @@ public class ButtonManager : MonoBehaviour
     public void NoButton()
     {
         OpenAll();
+        exitText.SetActive(false);
     }
 
     private void CloseAll()
