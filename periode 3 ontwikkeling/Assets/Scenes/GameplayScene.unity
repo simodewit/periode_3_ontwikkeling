@@ -44937,6 +44937,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5525869f458936a45b92341d4f94d5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMec: {fileID: 597484298}
+  player: {fileID: 597484291}
+  playerPositionData: {x: 0, y: 0, z: 0}
+  slot: 0
 --- !u!4 &1223305735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36fce4351699b6348b01a0a8631fc1f8,
