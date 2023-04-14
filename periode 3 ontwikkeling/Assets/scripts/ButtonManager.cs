@@ -56,6 +56,10 @@ public class ButtonManager : MonoBehaviour
         OpenAll();
         exitText.SetActive(false);
     }
+    public void QuitV()
+    {
+        Application.Quit();
+    }
 
     private void CloseAll()
     {
