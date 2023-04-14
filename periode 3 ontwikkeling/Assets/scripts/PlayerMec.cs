@@ -16,6 +16,7 @@ public class PlayerMec : MonoBehaviour
 
     private Vector3 camRot;
     public Camera cam;
+    public GameObject face;
     public float camspeed;
 
     public Rigidbody rb;
@@ -36,6 +37,10 @@ public class PlayerMec : MonoBehaviour
     public RaycastHit hit;
 
     public bool isGrounded;
+    
+    public GameObject canvas;
+    public GameObject deadText;
+    public GameObject exit;
 
     void Start()
     {
@@ -55,8 +60,6 @@ public class PlayerMec : MonoBehaviour
 
         camRot.x = -Input.GetAxis("Mouse Y");
         cam.transform.Rotate(camRot * camspeed);
-
-
 
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && pickupRen == null && checkIfBoosting == false && isGrounded == true)
@@ -104,7 +107,14 @@ public class PlayerMec : MonoBehaviour
 
         if (transform.position.y < deathBarrier)
         {
+            Instantiate(face, transform.position, transform.rotation);
             Destroy(gameObject);
+
+            canvas.SetActive(true);
+            deadText.SetActive(true);
+            exit.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
@@ -115,7 +125,12 @@ public class PlayerMec : MonoBehaviour
 
         if(health <= 0)
         {
-            Destroy(gameObject);
+            canvas.SetActive(true);
+            deadText.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+
         }
     }
 }
